@@ -1,0 +1,14 @@
+/*
+* Ensures all job parameters has a default value
+*
+* Rationale:
+* Having default values can assist with Lineage. 
+*
+* Note: * This is customer by costomer basis
+*/
+
+item.parameters.each { paramName, param ->
+    if (param.defaultValue == null) {
+        compliance.failure("Parameter, '${param.name}' has no default value")
+    }
+}
